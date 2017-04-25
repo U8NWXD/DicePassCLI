@@ -40,7 +40,7 @@ extended=false
 
 # Parse arguments
 # SOURCE: http://wiki.bash-hackers.org/howto/getopts_tutorial
-while getopts ":l:e" opt; do
+while getopts ":l:eb:" opt; do
   case $opt in
     l)
       length=$OPTARG
