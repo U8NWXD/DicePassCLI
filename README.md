@@ -2,6 +2,12 @@
 Command-line interface for generating memorable word-based passphrases
 like with the DicePass technique.
 
+## About
+Author: U8N WXD
+Email: cs.temporary@icloud.com
+PGP Fingerprint: F604 47DE DE8B 0877 BC5B  64E6 5AB1 1453 6028 7C6A
+My public key is available as 60287C6A.asc at the root of this repository.
+
 ## Legal
 Copyright (C) 2017 U8N WXD
 
