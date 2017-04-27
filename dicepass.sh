@@ -26,6 +26,7 @@ echo "This program comes with ABSOLUTELY NO WARRANTY"
 echo "This is free software, and you are welcome to redistribute it"
 echo "under the conditions of the Affero General Public License."
 echo "License: <http://www.gnu.org/licenses/>"
+echo
 
 # Set lengths of wordlists
 originalWords=7776
