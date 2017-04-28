@@ -18,6 +18,7 @@
 #   -l [Number of Words to Include]
 #   -b [Bits of Entropy Required]
 #   -e for extended version
+#   -h for help
 
 # Note that either -l or -b must be supplied and must be >0
 
@@ -42,7 +43,7 @@ extended=false
 
 # Parse arguments
 # SOURCE: http://wiki.bash-hackers.org/howto/getopts_tutorial
-while getopts ":l:eb:" opt; do
+while getopts ":l:eb:h" opt; do
   case $opt in
     l)
       length=$OPTARG
@@ -53,12 +54,20 @@ while getopts ":l:eb:" opt; do
     e)
       extended=true
       ;;
+    h)
+      echo "DicePassCLI Usage: ./dicepass.sh [-b [bits] | -l [words]] [-e]"
+      echo "-e uses the extended wordlist"
+      echo "-h displays this help text"
+      exit 0
+      ;;
     \?)
       echo "Invalid Option: -$OPTARG"
+      echo "Run ./dicepass.sh -h for help"
       exit 1
       ;;
     :)
       echo "Option -$OPTARG requires an argument"
+      echo "Run ./dicepass.sh -h for help"
       exit 1
       ;;
   esac
@@ -67,6 +76,7 @@ done
 if (( $# < 1 ))
   then {
     echo "Insufficient options provided. -b or -l required"
+    echo "Run ./dicepass.sh -h for help"
     exit 1
   }
 fi
