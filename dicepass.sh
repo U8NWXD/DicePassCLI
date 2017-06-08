@@ -81,13 +81,26 @@ if (( $# < 1 ))
   }
 fi
 
+# Determine path to data directory based on trial-and-error
+# SOURCE: https://stackoverflow.com/questions/59838/check-if-a-directory-exists-in-a-shell-script
+if [ -d ~/"Library/Application Support/com.icloud.cs_temporary/DicePassCLI/data" ]
+  then dataPath=~/"Library/Application Support/com.icloud.cs_temporary/DicePassCLI/data"
+elif [ -d "data" ]
+  then dataPath="data"
+else {
+  echo "ERROR: The 'data' directory containing wordlists cannot be found."
+  echo "It can be placed in your current working directory."
+  exit 1
+}
+fi
+
 # Determine path to words file and entropyPerWord based on extended/original choice
 if $extended
   then {
-    dict=data/extended.txt
+    dict=$dataPath/extended.txt
     dictLength=$extendedWords
   } else {
-    dict=data/original.txt
+    dict=$dataPath/original.txt
     dictLength=$originalWords
   }
 fi
@@ -129,7 +142,7 @@ while (( i < $length ))
         fi
       }
     done
-    word=$(sed "$(BC_LINE_LENGTH=9999999999999 bc <<< $index)q;d" $dict)
+    word=$(sed "$(BC_LINE_LENGTH=9999999999999 bc <<< $index)q;d" "$dict")
     echo -n "$word "
     let i=i+1
   }
