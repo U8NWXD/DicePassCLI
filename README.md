@@ -14,6 +14,8 @@ My public key is available as 60287C6A.asc at the root of this repository.
 ## Legal
 Copyright (C) 2017 U8N WXD
 
+### GNU General Purpose License v3
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
